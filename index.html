@@ -18,10 +18,22 @@
     <header class="navbar">
         <a class="brand" href="#home"><span class="brand-mark">B</span><span>bayu<span class="brand-dot">.</span></span></a>
         <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
-        <nav id="navMenu">
-            <a href="#tentang">Tentang</a>
-            <a href="#perjalanan">Perjalanan</a>
-            <a href="#karya">Karya</a>
+        <nav id="navMenu" aria-label="Navigasi utama">
+            <div class="nav-dropdown">
+                <button type="button" class="dropdown-toggle" aria-expanded="false">Tentang <span aria-hidden="true">▾</span></button>
+                <div class="dropdown-menu">
+                    <a href="#tentang">Profil Saya</a>
+                    <a href="#tentang">Pendidikan</a>
+                    <a href="#perjalanan">Perjalanan</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button type="button" class="dropdown-toggle" aria-expanded="false">Karya <span aria-hidden="true">▾</span></button>
+                <div class="dropdown-menu">
+                    <a href="#karya">Daftar Proyek</a>
+                    <a href="#keahlian">Keahlian</a>
+                </div>
+            </div>
             <a href="#kontak" class="nav-contact">Hubungi saya ↗</a>
         </nav>
     </header>
@@ -195,7 +207,7 @@
             </div>
         </section>
 
-        <section class="section-wrap skills-section section-pad">
+        <section class="section-wrap skills-section section-pad" id="keahlian">
             <div class="skills-layout">
                 <div class="section-heading reveal">
                     <p class="eyebrow">04 / KOMPETENSI</p>

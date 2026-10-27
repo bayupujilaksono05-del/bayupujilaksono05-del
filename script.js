@@ -1,5 +1,40 @@
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
+const dropdowns = [...document.querySelectorAll('.nav-dropdown')];
+
+dropdowns.forEach(dropdown => {
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  toggle.addEventListener('click', event => {
+    event.stopPropagation();
+    const shouldOpen = !dropdown.classList.contains('open');
+    dropdowns.forEach(item => {
+      item.classList.remove('open');
+      item.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+    });
+    if (shouldOpen) {
+      dropdown.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+document.addEventListener('click', event => {
+  if (!event.target.closest('.nav-dropdown')) {
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove('open');
+      dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+    });
+  }
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    dropdowns.forEach(dropdown => {
+      dropdown.classList.remove('open');
+      dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+    });
+  }
+});
 
 menuToggle.addEventListener('click', () => {
   const isOpen = navMenu.classList.toggle('open');

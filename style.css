@@ -122,6 +122,71 @@ nav a:hover,
     color: #fff
 }
 
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.dropdown-toggle:hover,
+.nav-dropdown.open .dropdown-toggle {
+    color: #fff;
+}
+
+.dropdown-toggle span {
+    font-size: 11px;
+    color: var(--purple);
+    transition: transform .2s ease;
+}
+
+.nav-dropdown.open .dropdown-toggle span {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: -12px;
+    min-width: 155px;
+    width: max-content;
+    max-width: 220px;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: #171923;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .3);
+    z-index: 20;
+}
+
+.nav-dropdown.open .dropdown-menu {
+    display: block;
+}
+
+nav .dropdown-menu a {
+    display: block;
+    padding: 10px 11px;
+    border-radius: 7px;
+    color: #c4c8d2;
+    white-space: nowrap;
+}
+
+nav .dropdown-menu a:hover {
+    background: rgba(255, 255, 255, .07);
+    color: #fff;
+}
+
 .nav-contact {
     border: 1px solid var(--line);
     padding: 10px 15px;
@@ -1256,6 +1321,29 @@ nav a:hover,
     nav a {
         padding: 12px
     }
+    .nav-dropdown {
+        width: 100%;
+    }
+    .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        padding: 12px;
+        text-align: left;
+    }
+    .dropdown-menu {
+        position: static;
+        width: auto;
+        max-width: none;
+        min-width: 0;
+        margin: 0 0 7px 10px;
+        padding: 4px;
+        box-shadow: none;
+        background: rgba(255, 255, 255, .025);
+    }
+    nav .dropdown-menu a {
+        padding: 10px 12px;
+        white-space: normal;
+    }
     .nav-contact {
         margin-top: 5px;
         text-align: center
@@ -1473,4 +1561,40 @@ nav a:hover,
     height: 28px;
     display: grid;
     place-items: center;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 150px;
+    width: max-content;
+    max-width: 220px;
+    padding: 8px;
+    border-radius: 12px;
+    background: #171725;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    display: none;
+    z-index: 1000;
+}
+
+.nav-dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.dropdown-menu a:hover {
+    background: #292940;
 }
